@@ -724,6 +724,11 @@
     (pin "1" (uuid 7ba2265c-09ef-421f-8c72-df57ebd5c0b3))
     (pin "2" (uuid eaed883a-6d3c-480c-bb90-fd0b9bfb30d0))
     (instances
+      (project "_autosave-connector"
+        (path "/25f14805-cd7a-409b-a20f-94416086f580"
+          (reference "C16") (unit 1)
+        )
+      )
       (project "Project232"
         (path "/b4ba9143-ff4b-4478-b064-00c745ce84f2/2d71a249-13ee-4d19-8076-8e8a0a5ccf83"
           (reference "C16") (unit 1)
@@ -754,6 +759,11 @@
     (pin "5" (uuid 45528c7e-cd81-4e42-993a-acf90448d21f))
     (pin "6" (uuid 3da6bf0a-2cee-4979-89cc-8916fc5de54c))
     (instances
+      (project "_autosave-connector"
+        (path "/25f14805-cd7a-409b-a20f-94416086f580"
+          (reference "J2") (unit 1)
+        )
+      )
       (project "Project232"
         (path "/b4ba9143-ff4b-4478-b064-00c745ce84f2"
           (reference "J2") (unit 1)
@@ -782,6 +792,11 @@
     )
     (pin "1" (uuid 8c3c6268-99b2-4e48-a4c0-4f5bf1faf28e))
     (instances
+      (project "_autosave-connector"
+        (path "/25f14805-cd7a-409b-a20f-94416086f580"
+          (reference "#PWR012") (unit 1)
+        )
+      )
       (project "Project232"
         (path "/b4ba9143-ff4b-4478-b064-00c745ce84f2"
           (reference "#PWR012") (unit 1)
@@ -810,6 +825,11 @@
     )
     (pin "1" (uuid d61a2e76-7f8f-45a6-8d0c-45eaa254dd8a))
     (instances
+      (project "_autosave-connector"
+        (path "/25f14805-cd7a-409b-a20f-94416086f580"
+          (reference "#PWR012") (unit 1)
+        )
+      )
       (project "Project232"
         (path "/b4ba9143-ff4b-4478-b064-00c745ce84f2"
           (reference "#PWR012") (unit 1)
@@ -838,6 +858,11 @@
     )
     (pin "1" (uuid 76bf0194-def1-4f05-b5e9-f99a8e38b212))
     (instances
+      (project "_autosave-connector"
+        (path "/25f14805-cd7a-409b-a20f-94416086f580"
+          (reference "#PWR010") (unit 1)
+        )
+      )
       (project "Project232"
         (path "/b4ba9143-ff4b-4478-b064-00c745ce84f2"
           (reference "#PWR010") (unit 1)
@@ -866,6 +891,11 @@
     )
     (pin "1" (uuid ab94196a-b3a2-4a4f-8853-704018aa08c9))
     (instances
+      (project "_autosave-connector"
+        (path "/25f14805-cd7a-409b-a20f-94416086f580"
+          (reference "#PWR09") (unit 1)
+        )
+      )
       (project "Project232"
         (path "/b4ba9143-ff4b-4478-b064-00c745ce84f2"
           (reference "#PWR09") (unit 1)
@@ -896,6 +926,11 @@
     (pin "2" (uuid e923bc6f-687c-42c7-aef9-e569c27a0653))
     (pin "3" (uuid 6c2b0f4e-a771-46f2-8eef-5e945095b772))
     (instances
+      (project "_autosave-connector"
+        (path "/25f14805-cd7a-409b-a20f-94416086f580"
+          (reference "J1") (unit 1)
+        )
+      )
       (project "Project232"
         (path "/b4ba9143-ff4b-4478-b064-00c745ce84f2"
           (reference "J1") (unit 1)
@@ -924,6 +959,11 @@
     )
     (pin "1" (uuid 00e54a76-0bd3-4a7e-8977-82030f88151c))
     (instances
+      (project "_autosave-connector"
+        (path "/25f14805-cd7a-409b-a20f-94416086f580"
+          (reference "#PWR013") (unit 1)
+        )
+      )
       (project "Project232"
         (path "/b4ba9143-ff4b-4478-b064-00c745ce84f2"
           (reference "#PWR013") (unit 1)
@@ -953,6 +993,11 @@
     (pin "1" (uuid 098d7aa9-4278-432f-a6a9-750c802ad0b4))
     (pin "2" (uuid 546bf120-7c54-44e5-bd54-42921099c2e2))
     (instances
+      (project "_autosave-connector"
+        (path "/25f14805-cd7a-409b-a20f-94416086f580"
+          (reference "R2") (unit 1)
+        )
+      )
       (project "Project232"
         (path "/b4ba9143-ff4b-4478-b064-00c745ce84f2"
           (reference "R2") (unit 1)
@@ -981,6 +1026,11 @@
     )
     (pin "1" (uuid ef320d86-74d7-4307-9f89-3e9dc3dc48b1))
     (instances
+      (project "_autosave-connector"
+        (path "/25f14805-cd7a-409b-a20f-94416086f580"
+          (reference "#PWR011") (unit 1)
+        )
+      )
       (project "Project232"
         (path "/b4ba9143-ff4b-4478-b064-00c745ce84f2"
           (reference "#PWR011") (unit 1)
@@ -1012,6 +1062,11 @@
     (pin "3" (uuid aea7b4d5-4e97-4428-a16b-951e0b416d1e))
     (pin "4" (uuid 876df6c9-76da-470d-adfd-405a6c074907))
     (instances
+      (project "_autosave-connector"
+        (path "/25f14805-cd7a-409b-a20f-94416086f580"
+          (reference "J3") (unit 1)
+        )
+      )
       (project "Project232"
         (path "/b4ba9143-ff4b-4478-b064-00c745ce84f2/2d71a249-13ee-4d19-8076-8e8a0a5ccf83"
           (reference "J3") (unit 1)
@@ -1038,6 +1093,11 @@
     (pin "1" (uuid 5df0cc00-1093-4251-ae31-26e8c8ad311c))
     (pin "2" (uuid 045db153-d626-4271-965f-a8ce013ada2a))
     (instances
+      (project "_autosave-connector"
+        (path "/25f14805-cd7a-409b-a20f-94416086f580"
+          (reference "R1") (unit 1)
+        )
+      )
       (project "Project232"
         (path "/b4ba9143-ff4b-4478-b064-00c745ce84f2"
           (reference "R1") (unit 1)
@@ -1066,6 +1126,11 @@
     )
     (pin "1" (uuid c6f1cfdc-3df7-4bdb-809f-07b34864f856))
     (instances
+      (project "_autosave-connector"
+        (path "/25f14805-cd7a-409b-a20f-94416086f580"
+          (reference "#PWR09") (unit 1)
+        )
+      )
       (project "Project232"
         (path "/b4ba9143-ff4b-4478-b064-00c745ce84f2"
           (reference "#PWR09") (unit 1)
@@ -1075,5 +1140,9 @@
         )
       )
     )
+  )
+
+  (sheet_instances
+    (path "/" (page "1"))
   )
 )
