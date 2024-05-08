@@ -67,6 +67,8 @@ void Error_Handler(void);
 #define VADC_IN_GPIO_Port GPIOA
 #define VADC_OUT_Pin GPIO_PIN_3
 #define VADC_OUT_GPIO_Port GPIOA
+#define LOAD_CHECK_Pin GPIO_PIN_4
+#define LOAD_CHECK_GPIO_Port GPIOA
 #define LOAD_CTR_Pin GPIO_PIN_0
 #define LOAD_CTR_GPIO_Port GPIOB
 #define TEST_Pin GPIO_PIN_11
