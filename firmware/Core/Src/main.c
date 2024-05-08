@@ -117,12 +117,12 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  HAL_ADC_Start_DMA(&hadc1, adc_value , 4);
+/*	  HAL_ADC_Start_DMA(&hadc1, adc_value , 4);
 	  adc = HAL_ADC_GetValue(&hadc1);
 	  voltage = (float)adc*(3.3/4095);
 	  HAL_Delay(1000);
 	  HAL_GPIO_WritePin(TEST_GPIO_Port, TEST_Pin, 1);
-	  //HAL_GPIO_TogglePin(TEST_GPIO_Port, TEST_Pin);
+	  //HAL_GPIO_TogglePin(TEST_GPIO_Port, TEST_Pin);*/
   }
   /* USER CODE END 3 */
 }
@@ -303,9 +303,9 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE END TIM1_Init 1 */
   htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 0;
+  htim1.Init.Prescaler = 24-1;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 65535;
+  htim1.Init.Period = 100-1;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;

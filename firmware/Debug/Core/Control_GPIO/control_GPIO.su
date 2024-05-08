@@ -1,0 +1,2 @@
+../Core/Control_GPIO/control_GPIO.c:3:6:buckControl	16	static
+../Core/Control_GPIO/control_GPIO.c:7:6:loadControl	16	static

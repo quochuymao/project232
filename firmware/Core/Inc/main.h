@@ -79,7 +79,8 @@ void Error_Handler(void);
 #define BUCK_EN_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
-
+#define ENABLE_CONTROL 1
+#define DISABLE_CONTROL 0
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

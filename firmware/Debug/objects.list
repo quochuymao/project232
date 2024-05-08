@@ -1,3 +1,7 @@
+"./Core/ADC/ADC_VALUE.o"
+"./Core/Control_GPIO/control_GPIO.o"
+"./Core/LCD_I2C/LCD.o"
+"./Core/PWM_Generation/PWM_Control.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32f1xx_hal_msp.o"
 "./Core/Src/stm32f1xx_it.o"
