@@ -45,10 +45,21 @@
         "silk_text_thickness": 0.15,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.5
+          "min_clearance": 0.762
         }
       },
-      "diff_pair_dimensions": [],
+      "diff_pair_dimensions": [
+        {
+          "gap": 0.0,
+          "via_gap": 0.0,
+          "width": 0.0
+        },
+        {
+          "gap": 0.3,
+          "via_gap": 0.5,
+          "width": 0.3
+        }
+      ],
       "drc_exclusions": [],
       "meta": {
         "version": 2
@@ -165,8 +176,26 @@
           "td_width_to_size_filter_ratio": 0.9
         }
       ],
-      "track_widths": [],
-      "via_dimensions": [],
+      "track_widths": [
+        0.0,
+        0.254,
+        0.381,
+        0.508
+      ],
+      "via_dimensions": [
+        {
+          "diameter": 0.0,
+          "drill": 0.0
+        },
+        {
+          "diameter": 0.6096,
+          "drill": 0.3048
+        },
+        {
+          "diameter": 1.016,
+          "drill": 0.508
+        }
+      ],
       "zones_allow_external_fillets": false
     },
     "layer_presets": [],
@@ -475,10 +504,6 @@
     [
       "08f00ace-960d-43b7-b914-6ed5cf20119c",
       "Sens"
-    ],
-    [
-      "7f720452-41a2-4bfd-8d27-0bbd0a95e685",
-      "backup"
     ],
     [
       "3f36bdba-92ed-4b6a-b9ce-47ffd765ff58",

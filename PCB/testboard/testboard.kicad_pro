@@ -312,7 +312,7 @@
       "version": 1
     },
     "net_format_name": "",
-    "page_layout_descr_file": "",
+    "page_layout_descr_file": "empty.kicad_wks",
     "plot_directory": "",
     "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",
@@ -324,8 +324,8 @@
   },
   "sheets": [
     [
-      "c651d7d8-bf75-46e9-9440-de9fae6cda02",
-      ""
+      "42ffa101-ea8a-404b-b25c-89b131d4ed11",
+      "EAGLE FILE_0"
     ]
   ],
   "text_variables": {}
