@@ -110,6 +110,10 @@ int main(void)
   /* USER CODE BEGIN 2 */
   lcd_init();
   lcd_clear_display();
+  PWM_Control(20,100000);
+  PWM_Enable();
+
+  //PWM_Control(50, 1);
 
   /* USER CODE END 2 */
 
@@ -120,20 +124,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  lcd_clear_display();
-	  HAL_Delay(500);
-	  lcd_send_string("hello");
-	  HAL_Delay(500);
-	  lcd_goto_XY(2, 0);
-	  HAL_Delay(500);
-	  lcd_send_string("Mao Quoc Huy");
-	  HAL_Delay(500);
-/*	  HAL_ADC_Start_DMA(&hadc1, adc_value , 4);
-	  adc = HAL_ADC_GetValue(&hadc1);
-	  voltage = (float)adc*(3.3/4095);
-	  HAL_Delay(1000);
-	  HAL_GPIO_WritePin(TEST_GPIO_Port, TEST_Pin, 1);
-	  //HAL_GPIO_TogglePin(TEST_GPIO_Port, TEST_Pin);*/
+
   }
   /* USER CODE END 3 */
 }
@@ -314,7 +305,7 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE END TIM1_Init 1 */
   htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 24-1;
+  htim1.Init.Prescaler = 0;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim1.Init.Period = 100-1;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
