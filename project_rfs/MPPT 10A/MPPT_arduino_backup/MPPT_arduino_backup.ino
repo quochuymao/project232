@@ -162,7 +162,7 @@ void loop()
   power();
   load_control();
   led_output();
-  lcd_display();
+  lcd_display(); 
 }
  
 int read_adc(int channel)
