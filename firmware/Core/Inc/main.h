@@ -31,7 +31,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+typedef enum {POWER_DISPLAY,STATUS_SYSTEM} state_display;
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -67,8 +67,9 @@ void Error_Handler(void);
 #define VADC_IN_GPIO_Port GPIOA
 #define VADC_OUT_Pin GPIO_PIN_3
 #define VADC_OUT_GPIO_Port GPIOA
-#define LOAD_CHECK_Pin GPIO_PIN_4
-#define LOAD_CHECK_GPIO_Port GPIOA
+#define CHANGE_DISPLAY_Pin GPIO_PIN_4
+#define CHANGE_DISPLAY_GPIO_Port GPIOA
+#define CHANGE_DISPLAY_EXTI_IRQn EXTI4_IRQn
 #define LOAD_CTR_Pin GPIO_PIN_0
 #define LOAD_CTR_GPIO_Port GPIOB
 #define TEST_Pin GPIO_PIN_11
@@ -77,6 +78,8 @@ void Error_Handler(void);
 #define PWM_OUT_GPIO_Port GPIOA
 #define BUCK_EN_Pin GPIO_PIN_9
 #define BUCK_EN_GPIO_Port GPIOA
+#define ON 1
+#define OFF 0
 
 /* USER CODE BEGIN Private defines */
 #define ENABLE_CONTROL 1

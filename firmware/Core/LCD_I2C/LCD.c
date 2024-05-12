@@ -3,6 +3,7 @@ extern I2C_HandleTypeDef hi2c1;  // change your handler here accordingly
 
 #define SLAVE_ADDRESS_LCD 0x4E // change this according to ur setup
 
+
 void lcd_send_cmd (char cmd)
 {
   char data_u, data_l;
@@ -70,3 +71,33 @@ void lcd_goto_XY (int row, int col)
 	}
 	lcd_send_cmd(pos_Addr);
 }
+void lcd_display(float powerIn, float  powerOut)
+{
+	char str[30];
+	lcd_clear_display();
+	if(display = POWER_DISPLAY)
+	{
+		lcd_send_string("Pin: ");
+		sprintf(str,"%2.2f",powerIn);
+		lcd_send_string(str);
+		lcd_goto_XY(2,0);
+		lcd_send_string("Pout: ");
+		sprintf(str,"%2.2f",powerOut);
+		lcd_send_string(str);
+	}
+	else
+	{
+		lcd_clear_display();
+		lcd_send_string("BATTERY: ");
+
+		lcd_goto_XY(2,0);
+		lcd_send_string("LOAD: ");
+		lcd_send_string(str);
+	}
+}
+
+void lcd_display_system()
+{
+
+}
+

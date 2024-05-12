@@ -1,0 +1,4 @@
+../Core/ADC/ADC_VALUE.c:4:7:getCurrentIn	1
+../Core/ADC/ADC_VALUE.c:9:7:getCurrentOut	1
+../Core/ADC/ADC_VALUE.c:14:7:getVoltageIn	1
+../Core/ADC/ADC_VALUE.c:19:7:getVoltageOut	1

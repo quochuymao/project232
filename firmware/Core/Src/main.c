@@ -26,7 +26,7 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+state_display display = POWER_DISPLAY;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -62,13 +62,16 @@ static void MX_I2C1_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_USB_PCD_Init(void);
 /* USER CODE BEGIN PFP */
-
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 uint32_t adc_value[4];
-float voltage;
+uint8_t dutyCycle = 10;
+float currentOut,currentIn,voltageIn,voltageOut;
+float Power_Out_Previous = 0,Power_Out_Current = 0;
+float Power_In_Current = 0;
   /* NOTE : This function should not be modified. When the callback is needed,
             function HAL_ADC_ConvCpltCallback must be implemented in the user file.
    */
@@ -110,7 +113,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   lcd_init();
   lcd_clear_display();
-  PWM_Control(20,100000);
+  PWM_Control(dutyCycle,100000);
   PWM_Enable();
 
   //PWM_Control(50, 1);
@@ -124,7 +127,46 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  /*
+	  HAL_ADC_Start_DMA(&hadc1,adc_value, 4);
+	  currentIn = getCurrentIn(adc_value[0]);
+	  currentOut = getCurrentOut(adc_value[1]);
+	  voltageIn =  getVoltageIn(adc_value[2]);
+	  voltageOut = getVoltageOut(adc_value[3]);
 
+	  Power_Out_Current = voltageOut * currentOut;
+	  Power_In_Current = voltageIn * currentIn;
+	  if(Power_Out_Current > Power_Out_Previous)
+	  {
+		  dutyCycle = dutyCycle + 1;
+	  }
+	  else
+	  {
+		  dutyCycle = dutyCycle - 1;
+	  }
+	  Power_Out_Previous = Power_Out_Current;
+	  PWM_Control(dutyCycle, 100000);
+
+	  lcd_display(Power_In_Current,Power_Out_Current);
+
+	  if(voltageIn >= 17.6)
+	  {
+		  buckControl(ON);
+	  }
+	  else
+	  {
+		  buckControl(OFF);
+	  }
+	  if(voltageOut >= 11.5)
+	  {
+		  loadControl(ON);
+	  }
+	  else
+	  {
+		  loadControl(OFF);
+	  }
+
+*/
   }
   /* USER CODE END 3 */
 }
@@ -428,11 +470,11 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : LOAD_CHECK_Pin */
-  GPIO_InitStruct.Pin = LOAD_CHECK_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(LOAD_CHECK_GPIO_Port, &GPIO_InitStruct);
+  /*Configure GPIO pin : CHANGE_DISPLAY_Pin */
+  GPIO_InitStruct.Pin = CHANGE_DISPLAY_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(CHANGE_DISPLAY_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : LOAD_CTR_Pin TEST_Pin */
   GPIO_InitStruct.Pin = LOAD_CTR_Pin|TEST_Pin;
@@ -448,12 +490,26 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(BUCK_EN_GPIO_Port, &GPIO_InitStruct);
 
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI4_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	if(GPIO_Pin == CHANGE_DISPLAY_Pin)
+	{
+		display = ~display;
+	} else
+	{
+		__NOP();
+	}
 
+}
 /* USER CODE END 4 */
 
 /**

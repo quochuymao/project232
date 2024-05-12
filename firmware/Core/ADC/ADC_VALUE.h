@@ -8,9 +8,9 @@
 #ifndef ADC_ADC_VALUE_H_
 #define ADC_ADC_VALUE_H_
 
-void getCurrentIn(int adcValue);
-void getCurrentOut(int adcValue);
-void getVoltageIn(int adcValue);
-void getVoltageOut(int adcValue);
+float getCurrentIn(int adcValue);
+float getCurrentOut(int adcValue);
+float getVoltageIn(int adcValue);
+float getVoltageOut(int adcValue);
 
 #endif /* ADC_ADC_VALUE_H_ */

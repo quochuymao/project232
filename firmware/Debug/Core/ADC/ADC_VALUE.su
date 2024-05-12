@@ -1,0 +1,4 @@
+../Core/ADC/ADC_VALUE.c:4:7:getCurrentIn	16	static
+../Core/ADC/ADC_VALUE.c:9:7:getCurrentOut	16	static
+../Core/ADC/ADC_VALUE.c:14:7:getVoltageIn	16	static
+../Core/ADC/ADC_VALUE.c:19:7:getVoltageOut	16	static
