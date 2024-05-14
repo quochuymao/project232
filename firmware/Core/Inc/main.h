@@ -59,6 +59,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define TEST_Pin GPIO_PIN_13
+#define TEST_GPIO_Port GPIOC
 #define CURRENT_IN_Pin GPIO_PIN_0
 #define CURRENT_IN_GPIO_Port GPIOA
 #define CURRENT_OUT_Pin GPIO_PIN_1
@@ -72,14 +74,12 @@ void Error_Handler(void);
 #define CHANGE_DISPLAY_EXTI_IRQn EXTI4_IRQn
 #define LOAD_CTR_Pin GPIO_PIN_0
 #define LOAD_CTR_GPIO_Port GPIOB
-#define TEST_Pin GPIO_PIN_11
-#define TEST_GPIO_Port GPIOB
+#define TESTB11_Pin GPIO_PIN_11
+#define TESTB11_GPIO_Port GPIOB
 #define PWM_OUT_Pin GPIO_PIN_8
 #define PWM_OUT_GPIO_Port GPIOA
 #define BUCK_EN_Pin GPIO_PIN_9
 #define BUCK_EN_GPIO_Port GPIOA
-#define ON 1
-#define OFF 0
 
 /* USER CODE BEGIN Private defines */
 #define ENABLE_CONTROL 1

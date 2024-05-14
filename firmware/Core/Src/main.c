@@ -127,6 +127,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  HAL_GPIO_TogglePin(TEST_GPIO_Port, TEST_Pin);
+	  HAL_Delay(1000);
 	  /*
 	  HAL_ADC_Start_DMA(&hadc1,adc_value, 4);
 	  currentIn = getCurrentIn(adc_value[0]);
@@ -460,15 +462,26 @@ static void MX_GPIO_Init(void)
 /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LOAD_CTR_Pin|TEST_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(TEST_GPIO_Port, TEST_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, LOAD_CTR_Pin|TESTB11_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(BUCK_EN_GPIO_Port, BUCK_EN_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : TEST_Pin */
+  GPIO_InitStruct.Pin = TEST_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(TEST_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : CHANGE_DISPLAY_Pin */
   GPIO_InitStruct.Pin = CHANGE_DISPLAY_Pin;
@@ -476,8 +489,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(CHANGE_DISPLAY_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LOAD_CTR_Pin TEST_Pin */
-  GPIO_InitStruct.Pin = LOAD_CTR_Pin|TEST_Pin;
+  /*Configure GPIO pins : LOAD_CTR_Pin TESTB11_Pin */
+  GPIO_InitStruct.Pin = LOAD_CTR_Pin|TESTB11_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
