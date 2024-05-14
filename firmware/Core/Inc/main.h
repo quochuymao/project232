@@ -74,8 +74,6 @@ void Error_Handler(void);
 #define CHANGE_DISPLAY_EXTI_IRQn EXTI4_IRQn
 #define LOAD_CTR_Pin GPIO_PIN_0
 #define LOAD_CTR_GPIO_Port GPIOB
-#define TESTB11_Pin GPIO_PIN_11
-#define TESTB11_GPIO_Port GPIOB
 #define PWM_OUT_Pin GPIO_PIN_8
 #define PWM_OUT_GPIO_Port GPIOA
 #define BUCK_EN_Pin GPIO_PIN_9
