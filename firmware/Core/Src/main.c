@@ -127,9 +127,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  HAL_GPIO_TogglePin(TEST_GPIO_Port, TEST_Pin);
-	  HAL_Delay(1000);
 	  /*
+
 	  HAL_ADC_Start_DMA(&hadc1,adc_value, 4);
 	  currentIn = getCurrentIn(adc_value[0]);
 	  currentOut = getCurrentOut(adc_value[1]);
@@ -168,7 +167,7 @@ int main(void)
 		  loadControl(OFF);
 	  }
 
-*/
+
   }
   /* USER CODE END 3 */
 }
