@@ -3,13 +3,13 @@
 
 float getCurrentIn(int adcValue)
 {
-
+	float V_out = ((float)adcValue/4096)*3.3;
 	return 0;
 }
 float getCurrentOut(int adcValue)
 {
-
-	return 0;
+	float V_out = ((float)adcValue/4096)*3.3;
+	return V_out;
 }
 float getVoltageIn(int adcValue)
 {
@@ -18,6 +18,7 @@ float getVoltageIn(int adcValue)
 }
 float getVoltageOut(int adcValue)
 {
-
-	return 0;
+	float V_out ;
+	V_out = ((float)adcValue/4096)*3.3*5.51;
+	return V_out;
 }

@@ -125,21 +125,22 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  lcd_display(82.2,32.5);
-	  HAL_GPIO_WritePin(TEST_GPIO_Port, TEST_Pin, 0);
-	  HAL_Delay(2000);
-	  HAL_GPIO_WritePin(TEST_GPIO_Port, TEST_Pin, 1);
-
     /* USER CODE BEGIN 3 */
-/*
+
 	  HAL_ADC_Start_DMA(&hadc1,adc_value, 4);
 	  currentIn = getCurrentIn(adc_value[0]);
-	  currentOut = getCurrentOut(adc_value[1]);
+	  currentOut = ((float)adc_value[1]/4096)*3.3;
 	  voltageIn =  getVoltageIn(adc_value[2]);
-	  voltageOut = getVoltageOut(adc_value[3]);
+	  voltageOut = ((float)adc_value[3]/4096)*3.3*5.51;;
 
 	  Power_Out_Current = voltageOut * currentOut;
 	  Power_In_Current = voltageIn * currentIn;
+
+	  int Power_Out_Current_N = Power_Out_Current/1;
+	  int Power_Out_Current_T = ((Power_Out_Current - Power_Out_Current_N)*100)/1;
+	  int Power_In_Current_N = Power_In_Current/1;
+	  int Power_In_Current_T = ((Power_In_Current - Power_In_Current_T)*100)/1;
+
 	  if(Power_Out_Current > Power_Out_Previous)
 	  {
 		  dutyCycle = dutyCycle + 1;
@@ -151,26 +152,27 @@ int main(void)
 	  Power_Out_Previous = Power_Out_Current;
 	  PWM_Control(dutyCycle, 100000);
 
-	  lcd_display(Power_In_Current,Power_Out_Current);
+	  lcd_display(Power_In_Current_N,Power_In_Current_T,Power_Out_Current_N,Power_Out_Current_T);
+	  HAL_Delay(3000);
 
 	  if(voltageIn >= 17.6)
 	  {
-		  buckControl(ON);
+		  buckControl(1);
 	  }
 	  else
 	  {
-		  buckControl(OFF);
+		  buckControl(0);
 	  }
 	  if(voltageOut >= 11.5)
 	  {
-		  loadControl(ON);
+		  loadControl(1);
 	  }
 	  else
 	  {
-		  loadControl(OFF);
+		  loadControl(0);
 	  }
 
-*/
+
   }
   /* USER CODE END 3 */
 }

@@ -71,7 +71,7 @@ void lcd_goto_XY (int row, int col)
 	}
 	lcd_send_cmd(pos_Addr);
 }
-void lcd_display(float powerIn, float  powerOut)
+void lcd_display(int powerIn_N,int powerIn_T,int powerOut_N, int powerOut_T)
 {
 	char str[30];
 	lcd_clear_display();
@@ -81,14 +81,14 @@ void lcd_display(float powerIn, float  powerOut)
 		HAL_Delay(10);
 		lcd_send_string("Pin: ");
 		HAL_Delay(10);
-		sprintf(str,"%2.2f",powerIn);
+		sprintf(str,"%d.%dW",powerIn_N,powerIn_T);
 		lcd_send_string(str);
 		HAL_Delay(10);
 		lcd_goto_XY(2,0);
 		HAL_Delay(10);
 		lcd_send_string("Pout: ");
 		HAL_Delay(10);
-		sprintf(str,"%2.2f",powerOut);
+		sprintf(str,"%d.%dW",powerOut_N,powerOut_T);
 		lcd_send_string(str);
 	}
 	else
@@ -101,7 +101,6 @@ void lcd_display(float powerIn, float  powerOut)
 		lcd_goto_XY(2,0);
 		HAL_Delay(10);
 		lcd_send_string("LOAD: ");
-		lcd_send_string(str);
 	}
 }
 
