@@ -88,6 +88,7 @@ void lcd_display(float powerIn, float  powerOut)
 	else
 	{
 		lcd_clear_display();
+		lcd_goto_XY(1,0);
 		lcd_send_string("BATTERY: ");
 
 		lcd_goto_XY(2,0);
