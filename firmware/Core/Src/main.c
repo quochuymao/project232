@@ -125,6 +125,11 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+	  lcd_display(82.2,32.5);
+	  HAL_Delay(2000);
+	  lcd_clear_display();
+	  lcd_send_string("hello huy mo");
+	  HAL_Delay(2000);
 
     /* USER CODE BEGIN 3 */
 /*
