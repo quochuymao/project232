@@ -126,10 +126,9 @@ int main(void)
   {
     /* USER CODE END WHILE */
 	  lcd_display(82.2,32.5);
+	  HAL_GPIO_WritePin(TEST_GPIO_Port, TEST_Pin, 0);
 	  HAL_Delay(2000);
-	  lcd_clear_display();
-	  lcd_send_string("hello huy mo");
-	  HAL_Delay(2000);
+	  HAL_GPIO_WritePin(TEST_GPIO_Port, TEST_Pin, 1);
 
     /* USER CODE BEGIN 3 */
 /*
@@ -519,7 +518,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if(GPIO_Pin == CHANGE_DISPLAY_Pin)
 	{
-		display = ~display;
+		display = !display;
 	} else
 	{
 		__NOP();

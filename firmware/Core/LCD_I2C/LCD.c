@@ -75,23 +75,31 @@ void lcd_display(float powerIn, float  powerOut)
 {
 	char str[30];
 	lcd_clear_display();
-	if(display = POWER_DISPLAY)
+	if(display == POWER_DISPLAY)
 	{
+		lcd_goto_XY(1,0);
+		HAL_Delay(10);
 		lcd_send_string("Pin: ");
+		HAL_Delay(10);
 		sprintf(str,"%2.2f",powerIn);
 		lcd_send_string(str);
+		HAL_Delay(10);
 		lcd_goto_XY(2,0);
+		HAL_Delay(10);
 		lcd_send_string("Pout: ");
+		HAL_Delay(10);
 		sprintf(str,"%2.2f",powerOut);
 		lcd_send_string(str);
 	}
 	else
 	{
 		lcd_clear_display();
-		lcd_goto_XY(1,0);
+		lcd_goto_XY(1,1);
+		HAL_Delay(10);
 		lcd_send_string("BATTERY: ");
-
+		HAL_Delay(10);
 		lcd_goto_XY(2,0);
+		HAL_Delay(10);
 		lcd_send_string("LOAD: ");
 		lcd_send_string(str);
 	}
