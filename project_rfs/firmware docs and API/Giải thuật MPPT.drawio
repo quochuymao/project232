@@ -1,14 +1,41 @@
-<mxfile host="app.diagrams.net" modified="2024-05-11T10:17:41.093Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="RB_PAIu64JyJHEDo06BN" version="24.3.1" type="device">
+<mxfile host="app.diagrams.net" modified="2024-05-23T09:40:34.992Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="MPMw4_XyYOUePG4akW4k" version="24.4.4" type="device">
   <diagram name="Trang-1" id="QNzVlXSFIeCX4YH0qs5_">
-    <mxGraphModel dx="708" dy="390" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1458" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="c9gM8OAT63Zr5gqA5FnM-1" value="GIẢI THUẬT HỆ THỐNG&lt;div&gt;1.&amp;nbsp;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="c9gM8OAT63Zr5gqA5FnM-1" value="GIẢI THUẬT HỆ THỐNG&lt;div&gt;1.&amp;nbsp;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="200" y="130" width="290" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="c9gM8OAT63Zr5gqA5FnM-2" value="ADC IN &amp;gt; 17.6v&lt;div&gt;==&amp;gt; BUCK_EN&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="340" y="270" width="230" height="30" as="geometry" />
+        <mxCell id="zfRMVuMo04ckL4am9o2B-2" value="Khối xử lí ngắt" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="290" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="zfRMVuMo04ckL4am9o2B-4" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="zfRMVuMo04ckL4am9o2B-2">
+          <mxGeometry x="40" y="70" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zfRMVuMo04ckL4am9o2B-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="zfRMVuMo04ckL4am9o2B-5" target="zfRMVuMo04ckL4am9o2B-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zfRMVuMo04ckL4am9o2B-5" value="Khởi tạo các thiết bị ngoại vi cần thiết" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="280" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zfRMVuMo04ckL4am9o2B-7" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="zfRMVuMo04ckL4am9o2B-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="240" as="sourcePoint" />
+            <mxPoint x="380" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zfRMVuMo04ckL4am9o2B-8" value="Reset" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="517" y="240" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="zfRMVuMo04ckL4am9o2B-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="zfRMVuMo04ckL4am9o2B-9" target="zfRMVuMo04ckL4am9o2B-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zfRMVuMo04ckL4am9o2B-9" value="Đọc các giá trị ADC" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="400" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zfRMVuMo04ckL4am9o2B-11" value="Xử lí số liệu ADC tính toán công suất Pin, Pout" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="520" width="120" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
