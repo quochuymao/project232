@@ -104,8 +104,4 @@ void lcd_display(int votageIn_N,int votageIn_T,int votageOut_N, int votageOut_T)
 	}
 }
 
-void lcd_display_system()
-{
-
-}
 
