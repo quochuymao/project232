@@ -68,7 +68,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 uint32_t adc_value[4];
-uint8_t dutyCycle = 10;
+uint8_t dutyCycle = 70;
 float currentOut,currentIn,voltageIn,voltageOut;
 float Power_Out_Previous = 0,Power_Out_Current = 0;
 float Power_In_Current = 0;
@@ -125,17 +125,27 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+
     /* USER CODE BEGIN 3 */
 
+	  buckControl(1);
+	  HAL_Delay(2000);
+	  loadControl(0);
 	  HAL_ADC_Start_DMA(&hadc1,adc_value, 4);
 	  currentIn = getCurrentIn(adc_value[0]);
 	  currentOut = ((float)adc_value[1]/4096)*3.3;
-	  voltageIn =  getVoltageIn(adc_value[2]);
-	  voltageOut = ((float)adc_value[3]/4096)*3.3*5.51;;
+	  voltageIn =  ((float)adc_value[2]/4096)*3.3;
+	  voltageOut = ((float)adc_value[3]/4096)*3.3;
 
 	  Power_Out_Current = voltageOut * currentOut;
 	  Power_In_Current = voltageIn * currentIn;
 
+	  int Voltage_Out_N = voltageOut/1;
+	  int Voltage_Out_T = ((voltageOut - Voltage_Out_N)*100)/1;
+	  int Voltage_In_N = voltageIn/1;
+	  int Voltage_In_T = ((voltageIn - Voltage_In_N)*100)/1;
+
+	  /*
 	  int Power_Out_Current_N = Power_Out_Current/1;
 	  int Power_Out_Current_T = ((Power_Out_Current - Power_Out_Current_N)*100)/1;
 	  int Power_In_Current_N = Power_In_Current/1;
@@ -149,29 +159,13 @@ int main(void)
 	  {
 		  dutyCycle = dutyCycle - 1;
 	  }
+	  */
+
 	  Power_Out_Previous = Power_Out_Current;
 	  PWM_Control(dutyCycle, 100000);
 
-	  lcd_display(Power_In_Current_N,Power_In_Current_T,Power_Out_Current_N,Power_Out_Current_T);
+	  lcd_display(Voltage_In_N,Voltage_In_T,Voltage_Out_N,Voltage_Out_T);
 	  HAL_Delay(3000);
-
-	  if(voltageIn >= 17.6)
-	  {
-		  buckControl(1);
-	  }
-	  else
-	  {
-		  buckControl(0);
-	  }
-	  if(voltageOut >= 11.5)
-	  {
-		  loadControl(1);
-	  }
-	  else
-	  {
-		  loadControl(0);
-	  }
-
 
   }
   /* USER CODE END 3 */
@@ -353,7 +347,7 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE END TIM1_Init 1 */
   htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 0;
+  htim1.Init.Prescaler = 1;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim1.Init.Period = 100-1;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;

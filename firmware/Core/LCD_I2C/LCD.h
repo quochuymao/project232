@@ -18,6 +18,6 @@ void lcd_clear_display (void);	//clear display lcd
 
 void lcd_goto_XY (int row, int col); //set proper location on screen
 
-void lcd_display(int powerIn_N,int powerIn_T,int powerOut_N, int powerOut_T);
+void lcd_display(int votageIn_N,int votageIn_T,int votageOut_N, int votageOut_T);
 
 #endif /* LCD_I2C_LCD_H_ */
