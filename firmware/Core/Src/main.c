@@ -67,7 +67,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint32_t adc_value[4];
+uint32_t adc_value[2];
 uint8_t dutyCycle = 70;
 float currentOut,currentIn,voltageIn,voltageOut;
 float Power_Out_Previous = 0,Power_Out_Current = 0;
@@ -128,15 +128,21 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-	  buckControl(1);
-	  HAL_Delay(2000);
-	  loadControl(0);
-	  HAL_ADC_Start_DMA(&hadc1,adc_value, 4);
-	  currentIn = getCurrentIn(adc_value[0]);
-	  currentOut = ((float)adc_value[1]/4096)*3.3;
-	  voltageIn =  ((float)adc_value[2]/4096)*3.3;
-	  voltageOut = ((float)adc_value[3]/4096)*3.3;
 
+	  loadControl(0);
+	  HAL_ADC_Start_DMA(&hadc1,adc_value, 2);
+	 // currentIn = getCurrentIn(adc_value[0]);
+	  //currentOut = ((float)adc_value[1]/4096)*3.3;
+	  voltageIn =  ((float)adc_value[0]/4096)*3.3*5.68;
+	  voltageOut = ((float)adc_value[1]/4096)*3.3*5.68;
+	  if(voltageOut <2)
+	  {
+		  voltageOut = 0;
+	  }
+	  if(voltageIn < 2)
+	  {
+		  voltageIn = 0;
+	  }
 	  Power_Out_Current = voltageOut * currentOut;
 	  Power_In_Current = voltageIn * currentIn;
 
@@ -165,8 +171,15 @@ int main(void)
 	  PWM_Control(dutyCycle, 100000);
 
 	  lcd_display(Voltage_In_N,Voltage_In_T,Voltage_Out_N,Voltage_Out_T);
-	  HAL_Delay(3000);
-
+	  HAL_Delay(1000);
+	  if(voltageIn >= 15 && voltageIn <=18.5)
+	  {
+		  buckControl(1);
+	  }
+	  else
+	  {
+		  buckControl(0);
+	  }
   }
   /* USER CODE END 3 */
 }
@@ -244,7 +257,7 @@ static void MX_ADC1_Init(void)
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.NbrOfConversion = 4;
+  hadc1.Init.NbrOfConversion = 2;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
   {
     Error_Handler();
@@ -252,7 +265,7 @@ static void MX_ADC1_Init(void)
 
   /** Configure Regular Channel
   */
-  sConfig.Channel = ADC_CHANNEL_0;
+  sConfig.Channel = ADC_CHANNEL_2;
   sConfig.Rank = ADC_REGULAR_RANK_1;
   sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
@@ -262,26 +275,8 @@ static void MX_ADC1_Init(void)
 
   /** Configure Regular Channel
   */
-  sConfig.Channel = ADC_CHANNEL_1;
-  sConfig.Rank = ADC_REGULAR_RANK_2;
-  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /** Configure Regular Channel
-  */
-  sConfig.Channel = ADC_CHANNEL_2;
-  sConfig.Rank = ADC_REGULAR_RANK_3;
-  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /** Configure Regular Channel
-  */
   sConfig.Channel = ADC_CHANNEL_3;
-  sConfig.Rank = ADC_REGULAR_RANK_4;
+  sConfig.Rank = ADC_REGULAR_RANK_2;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();

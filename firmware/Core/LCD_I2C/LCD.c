@@ -81,14 +81,14 @@ void lcd_display(int votageIn_N,int votageIn_T,int votageOut_N, int votageOut_T)
 		HAL_Delay(10);
 		lcd_send_string("Vin: ");
 		HAL_Delay(10);
-		sprintf(str,"%d.%dW",votageIn_N,votageIn_T);
+		sprintf(str,"%d.%dV",votageIn_N,votageIn_T);
 		lcd_send_string(str);
 		HAL_Delay(10);
 		lcd_goto_XY(2,0);
 		HAL_Delay(10);
 		lcd_send_string("Vout: ");
 		HAL_Delay(10);
-		sprintf(str,"%d.%dW",votageOut_N,votageOut_T);
+		sprintf(str,"%d.%dV",votageOut_N,votageOut_T);
 		lcd_send_string(str);
 	}
 	else
