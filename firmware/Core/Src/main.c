@@ -509,7 +509,22 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if(GPIO_Pin == CHANGE_DISPLAY_Pin)
 	{
-		display = !display;
+		switch(display)
+		{
+		case POWER_DISPLAY:
+			display= STATUS_SYSTEM;
+		break;
+		case STATUS_SYSTEM:
+			display= VOL_DISPLAY;
+		break;
+		case VOL_DISPLAY:
+			display= CURR_DISPLAY;
+		break;
+		case CURR_DISPLAY:
+			display= POWER_DISPLAY;
+		break;
+		default: break;
+		}
 	} else
 	{
 		__NOP();

@@ -31,7 +31,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-typedef enum {POWER_DISPLAY,STATUS_SYSTEM} state_display;
+typedef enum {POWER_DISPLAY,STATUS_SYSTEM,VOL_DISPLAY,CURR_DISPLAY} state_display;
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

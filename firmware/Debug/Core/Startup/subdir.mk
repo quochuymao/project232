@@ -16,7 +16,7 @@ S_DEPS += \
 
 # Each subdirectory must supply rules for building sources it contributes
 Core/Startup/%.o: ../Core/Startup/%.s Core/Startup/subdir.mk
-	arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -I"C:/Users/LE TUAN THANH/STM32CubeIDE/workspace_1.13.1/DOAN2/project232/firmware/Core" -I"C:/Users/LE TUAN THANH/STM32CubeIDE/workspace_1.13.1/DOAN2/project232/firmware/Core/ADC" -I"C:/Users/LE TUAN THANH/STM32CubeIDE/workspace_1.13.1/DOAN2/project232/firmware/Core/Control_GPIO" -I"C:/Users/LE TUAN THANH/STM32CubeIDE/workspace_1.13.1/DOAN2/project232/firmware/Core/LCD_I2C" -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -I"C:/BACHKHOA/HK232/Project/project232/firmware/Core" -I"C:/BACHKHOA/HK232/Project/project232/firmware/Core/ADC" -I"C:/BACHKHOA/HK232/Project/project232/firmware/Core/Control_GPIO" -I"C:/BACHKHOA/HK232/Project/project232/firmware/Core/LCD_I2C" -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@" "$<"
 
 clean: clean-Core-2f-Startup
 

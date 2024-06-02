@@ -75,33 +75,66 @@ void lcd_display(int votageIn_N,int votageIn_T,int votageOut_N, int votageOut_T)
 {
 	char str[30];
 	lcd_clear_display();
-	if(display == POWER_DISPLAY)
+	switch(display)
 	{
+	case POWER_DISPLAY:
+		lcd_goto_XY(1,0);
+		HAL_Delay(10);
+		lcd_send_string("Pin: ");
+		HAL_Delay(10);
+		sprintf(str,"%d.%d W",0,0);
+		lcd_send_string(str);
+		HAL_Delay(10);
+		lcd_goto_XY(2,0);
+		HAL_Delay(10);
+		lcd_send_string("Pout: ");
+		HAL_Delay(10);
+		sprintf(str,"%d.%d W",0,0);
+		lcd_send_string(str);
+		break;
+	case STATUS_SYSTEM:
+		lcd_clear_display();
+		lcd_goto_XY(1,1);
+		HAL_Delay(10);
+		lcd_send_string("BATTERY: --");
+		HAL_Delay(10);
+		lcd_goto_XY(2,0);
+		HAL_Delay(10);
+		lcd_send_string("LOAD: --");
+		break;
+	case VOL_DISPLAY:
 		lcd_goto_XY(1,0);
 		HAL_Delay(10);
 		lcd_send_string("Vin: ");
 		HAL_Delay(10);
-		sprintf(str,"%d.%dV",votageIn_N,votageIn_T);
+		sprintf(str,"%d.%d V",votageIn_N,votageIn_T);
 		lcd_send_string(str);
 		HAL_Delay(10);
 		lcd_goto_XY(2,0);
 		HAL_Delay(10);
 		lcd_send_string("Vout: ");
 		HAL_Delay(10);
-		sprintf(str,"%d.%dV",votageOut_N,votageOut_T);
+		sprintf(str,"%d.%d V",votageOut_N,votageOut_T);
 		lcd_send_string(str);
-	}
-	else
-	{
-		lcd_clear_display();
-		lcd_goto_XY(1,1);
+		break;
+	case CURR_DISPLAY:
+		lcd_goto_XY(1,0);
 		HAL_Delay(10);
-		lcd_send_string("BATTERY: ");
+		lcd_send_string("Curr_In: ");
+		HAL_Delay(10);
+		sprintf(str,"%d.%d A",0,0);
+		lcd_send_string(str);
 		HAL_Delay(10);
 		lcd_goto_XY(2,0);
 		HAL_Delay(10);
-		lcd_send_string("LOAD: ");
+		lcd_send_string("Curr_Out: ");
+		HAL_Delay(10);
+		sprintf(str,"%d.%d A",0,0);
+		lcd_send_string(str);
+		break;
+	default: break;
 	}
+
 }
 
 

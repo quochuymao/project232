@@ -6,5 +6,5 @@
 ../Core/Src/main.c:404:13:MX_USB_PCD_Init	2
 ../Core/Src/main.c:433:13:MX_DMA_Init	1
 ../Core/Src/main.c:451:13:MX_GPIO_Init	1
-../Core/Src/main.c:508:6:HAL_GPIO_EXTI_Callback	2
-../Core/Src/main.c:525:6:Error_Handler	1
+../Core/Src/main.c:508:6:HAL_GPIO_EXTI_Callback	6
+../Core/Src/main.c:540:6:Error_Handler	1
